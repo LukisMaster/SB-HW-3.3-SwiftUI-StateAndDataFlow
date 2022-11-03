@@ -4,20 +4,23 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var timer = TimeCounter()
-    @EnvironmentObject var user: UserManager
+    
+    @AppStorage("name") private var nameStorage : String?
+    @AppStorage("isRegister") private var isRegister : Bool?
     
     var body: some View {
         VStack {
-            Text("Hi, \(user.name)!")
+            Text("Hi, \(nameStorage ?? "noname")!")
                 .font(.title)
-                .offset(x: 0, y: 100)
+                .offset(y: 50)
             Text("\(timer.counter)")
                 .font(.largeTitle)
-                .offset(x: 0, y: 200)
+                .offset(y: 100)
             Spacer()
-            ButtonView()
-                .environmentObject(timer)
+            ButtonView(color: .red, title: "\(timer.buttonTitle)", action: timer.startTimer)
             Spacer()
+            ButtonView(color: .blue, title: "LogOut", action: {isRegister?.toggle()})
+                .offset(y: -50)
         }
     }
 }
@@ -25,22 +28,24 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(UserManager())
     }
 }
 
 struct ButtonView: View {
-    @EnvironmentObject var timer: TimeCounter
+    
+    var color: Color
+    var title: String
+    var action: () -> Void
     
     var body: some View {
-        Button(action: { timer.startTimer() }) {
-            Text("\(timer.buttonTitle)")
+        Button(action: action) {
+            Text(title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
         .frame(width: 200, height: 60)
-        .background(Color.red)
+        .background(color)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)

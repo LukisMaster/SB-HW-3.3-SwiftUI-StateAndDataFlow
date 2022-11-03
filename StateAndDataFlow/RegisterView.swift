@@ -3,12 +3,13 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @EnvironmentObject var user: UserManager
+
     @State private var name = ""
     @State private var buttonDisabled = true
     
-    var a : String = "123"
-    
+    @AppStorage("name") private var nameStorage : String?
+    @AppStorage("isRegister") private var isRegister : Bool?
+        
     var body: some View {
         VStack {
             HStack {
@@ -30,8 +31,8 @@ struct RegisterView: View {
     
     private func registerUser() {
         if !name.isEmpty {
-            user.name = name
-            user.isRegister.toggle()
+            nameStorage = name
+            isRegister = true
         }
     }
 }

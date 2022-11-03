@@ -3,11 +3,11 @@
 import SwiftUI
 
 struct StarterView: View {
-    @EnvironmentObject var user: UserManager
+    @AppStorage("isRegister") private var isRegiser : Bool?
     
     var body: some View {
         Group {
-            if user.isRegister {
+            if isRegiser ?? false {
                 ContentView()
             } else {
                 RegisterView()
@@ -19,6 +19,5 @@ struct StarterView: View {
 struct StarterView_Previews: PreviewProvider {
     static var previews: some View {
         StarterView()
-            .environmentObject(UserManager())
     }
 }

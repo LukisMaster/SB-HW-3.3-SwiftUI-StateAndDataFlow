@@ -13,7 +13,6 @@
 		A87D1F4F2614ECDC00B9ADC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87D1F4E2614ECDC00B9ADC0 /* Preview Assets.xcassets */; };
 		A87D1F582614F61400B9ADC0 /* TimeCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D1F572614F61400B9ADC0 /* TimeCounter.swift */; };
 		A88B3FF02614FC41007A756A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B3FEF2614FC40007A756A /* RegisterView.swift */; };
-		A88B3FF32614FD39007A756A /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B3FF22614FD39007A756A /* UserManager.swift */; };
 		A88B3FF62614FEF6007A756A /* StarterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B3FF52614FEF6007A756A /* StarterView.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		A87D1F502614ECDC00B9ADC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A87D1F572614F61400B9ADC0 /* TimeCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCounter.swift; sourceTree = "<group>"; };
 		A88B3FEF2614FC40007A756A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		A88B3FF22614FD39007A756A /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A88B3FF52614FEF6007A756A /* StarterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +63,6 @@
 				A88B3FEF2614FC40007A756A /* RegisterView.swift */,
 				A88B3FF52614FEF6007A756A /* StarterView.swift */,
 				A87D1F572614F61400B9ADC0 /* TimeCounter.swift */,
-				A88B3FF22614FD39007A756A /* UserManager.swift */,
 				A87D1F4B2614ECDC00B9ADC0 /* Assets.xcassets */,
 				A87D1F502614ECDC00B9ADC0 /* Info.plist */,
 				A87D1F4D2614ECDC00B9ADC0 /* Preview Content */,
@@ -154,7 +151,6 @@
 				A88B3FF02614FC41007A756A /* RegisterView.swift in Sources */,
 				A88B3FF62614FEF6007A756A /* StarterView.swift in Sources */,
 				A87D1F582614F61400B9ADC0 /* TimeCounter.swift in Sources */,
-				A88B3FF32614FD39007A756A /* UserManager.swift in Sources */,
 				A87D1F482614ECD800B9ADC0 /* StateAndDataFlowApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
