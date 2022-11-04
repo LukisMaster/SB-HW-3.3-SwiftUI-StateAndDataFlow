@@ -2,15 +2,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @StateObject private var timer = TimeCounter()
+struct TimerView: View {
     
-    @AppStorage("name") private var nameStorage : String?
-    @AppStorage("isRegister") private var isRegister : Bool?
+    @StateObject private var timer = TimeCounter()
+    @EnvironmentObject var userManager: UserManager
     
     var body: some View {
         VStack {
-            Text("Hi, \(nameStorage ?? "noname")!")
+            Text("Hi, \(userManager.user.name)")
                 .font(.title)
                 .offset(y: 50)
             Text("\(timer.counter)")
@@ -19,7 +18,9 @@ struct ContentView: View {
             Spacer()
             ButtonView(color: .red, title: "\(timer.buttonTitle)", action: timer.startTimer)
             Spacer()
-            ButtonView(color: .blue, title: "LogOut", action: {isRegister?.toggle()})
+            ButtonView(color: .blue, title: "LogOut") {
+                DataManager.shared.clearUserData(userManager: userManager)
+            }
                 .offset(y: -50)
         }
     }
@@ -27,7 +28,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TimerView()
     }
 }
 

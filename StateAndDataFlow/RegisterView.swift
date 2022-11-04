@@ -4,36 +4,30 @@ import SwiftUI
 
 struct RegisterView: View {
 
-    @State private var name = ""
-    @State private var buttonDisabled = true
-    
-    @AppStorage("name") private var nameStorage : String?
-    @AppStorage("isRegister") private var isRegister : Bool?
+    @EnvironmentObject var userManager: UserManager
         
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                TextField("Enter your name", text: $name)
+                TextField("Enter your name", text: $userManager.user.name)
                     .multilineTextAlignment(.center)
                 Spacer()
-                Text(String(name.count))
-                    .foregroundColor(name.count > 2 ? .green : .red)
+                Text(String(userManager.countName))
+                    .foregroundColor(userManager.nameIsValid ? .green : .red)
                     .offset(x: -20)
             }
             Button(action: registerUser) {
                 Image(systemName: "checkmark.circle")
                 Text("Ok")
             }
-            .disabled(name.count < 3)
+            .disabled(!userManager.nameIsValid)
         }
     }
     
     private func registerUser() {
-        if !name.isEmpty {
-            nameStorage = name
-            isRegister = true
-        }
+        userManager.user.isRegistred.toggle()
+        DataManager.shared.saveUserData(user: userManager.user)
     }
 }
 

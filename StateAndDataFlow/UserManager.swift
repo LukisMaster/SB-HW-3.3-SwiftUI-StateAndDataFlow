@@ -7,11 +7,15 @@
 
 import Combine
 
-class UserManager {
-    @Published private(set) var user = User()
+class UserManager: ObservableObject {
+    @Published var user = User()
+    
+    var countName: Int {
+        user.name.count
+    }
     
     var nameIsValid: Bool {
-        user.name.count > 2
+        countName >= 3
     }
     
     init () {}
